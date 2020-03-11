@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.event.ActionEvent?>
+
+<AnchorPane prefHeight="570.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomerController">
+   <children>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="CUSTOMER">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <TextField fx:id="cus_sel_txt" layoutX="39.0" layoutY="40.0" prefHeight="31.0" prefWidth="642.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="118.0" AnchorPane.topAnchor="40.0" />
+                        <TextField fx:id="cus_id_txt" layoutX="109.0" layoutY="115.0" prefHeight="29.0" prefWidth="80.0" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="125.0" />
+                        <TableView fx:id="cus_table" layoutX="254.0" layoutY="115.0" prefHeight="397.0" prefWidth="546.0" AnchorPane.bottomAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="cusidColumn" prefWidth="75.0" text="CUSID" />
+                            <TableColumn fx:id="cusnameColumn" prefWidth="75.0" text="CUSNAME" />
+                            <TableColumn fx:id="ageColumn" prefWidth="75.0" text="AGE" />
+                            <TableColumn fx:id="rankColumn" prefWidth="75.0" text="RANK" />
+                            <TableColumn fx:id="jobColumn" prefWidth="75.0" text="JOB" />
+                            <TableColumn fx:id="reserveColumn" prefWidth="75.0" text="RESERVE" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="cus_name_txt" layoutX="129.0" layoutY="135.0" prefHeight="29.0" prefWidth="80.0" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="175.0" />
+                        <TextField fx:id="cus_job_txt" layoutX="139.0" layoutY="145.0" prefHeight="29.0" prefWidth="80.0" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="325.0" />
+                        <TextField fx:id="cus_rank_txt" layoutX="149.0" layoutY="155.0" prefHeight="29.0" prefWidth="80.0" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="275.0" />
+                        <TextField fx:id="cus_age_txt" layoutX="159.0" layoutY="165.0" prefHeight="29.0" prefWidth="80.0" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="225.0" />
+                        <TextField fx:id="cus_reserve_txt" layoutX="149.0" layoutY="155.0" prefHeight="29.0" prefWidth="80.0" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="375.0" />
+                        <Button layoutX="47.0" layoutY="427.0" mnemonicParsing="false" onAction="#cus_in_btn" prefHeight="70.0" prefWidth="159.0" text="INSERT" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="47.0">
+                           <font>
+                              <Font name="Comic Sans MS" size="29.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="699.0" layoutY="41.0" mnemonicParsing="false" onAction="#cus_sel_btn" prefHeight="29.0" prefWidth="84.0" text="SELECT" AnchorPane.leftAnchor="699.0" AnchorPane.topAnchor="41.0" />
+                        <Label layoutX="40.0" layoutY="126.0" prefHeight="28.0" prefWidth="70.0" text="ID" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" />
+                        <Label layoutX="50.0" layoutY="136.0" prefHeight="28.0" prefWidth="70.0" text="Name" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="175.0" />
+                        <Label layoutX="60.0" layoutY="146.0" prefHeight="28.0" prefWidth="70.0" text="Age" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="225.0" />
+                        <Label layoutX="70.0" layoutY="156.0" prefHeight="28.0" prefWidth="70.0" text="Rank" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="275.0" />
+                        <Label layoutX="80.0" layoutY="166.0" prefHeight="28.0" prefWidth="70.0" text="Job" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="325.0" />
+                        <Label layoutX="90.0" layoutY="176.0" prefHeight="28.0" prefWidth="70.0" text="Reserve" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="375.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="PRODUCT">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="28.0" prefWidth="70.0" text="No" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="125.0" />
+                        <Label layoutX="37.0" prefHeight="28.0" prefWidth="73.0" text="Name" textAlignment="CENTER" AnchorPane.leftAnchor="37.0" AnchorPane.topAnchor="175.0" />
+                        <Label layoutX="29.0" prefHeight="28.0" prefWidth="81.0" text="Inventory" textAlignment="CENTER" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="225.0" />
+                        <Label prefHeight="28.0" prefWidth="70.0" text="Price" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="275.0" />
+                        <Label layoutX="7.0" prefHeight="28.0" prefWidth="103.0" text="manufacturer" textAlignment="CENTER" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="325.0" />
+                        <Button layoutX="705.0" layoutY="41.0" mnemonicParsing="false" onAction="#prod_sel_btn" prefHeight="29.0" prefWidth="84.0" text="SELECT" AnchorPane.leftAnchor="699.0" AnchorPane.topAnchor="41.0" />
+                        <TextField fx:id="prod_manu_txt" layoutX="109.0" layoutY="325.0" prefHeight="29.0" prefWidth="80.0" />
+                        <TextField fx:id="prod_price_txt" layoutX="112.0" layoutY="275.0" prefHeight="29.0" prefWidth="80.0" AnchorPane.leftAnchor="109.0" />
+                        <TextField fx:id="prod_inven_txt" layoutX="109.0" layoutY="225.0" prefHeight="29.0" prefWidth="80.0" />
+                        <TextField fx:id="prod_name_txt" layoutX="109.0" layoutY="175.0" prefHeight="29.0" prefWidth="80.0" AnchorPane.leftAnchor="109.0" />
+                        <TextField fx:id="prod_no_txt" layoutX="104.0" layoutY="125.0" prefHeight="29.0" prefWidth="80.0" AnchorPane.leftAnchor="109.0" />
+                        <TableView layoutX="254.0" layoutY="114.0" prefHeight="397.0" prefWidth="546.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="C1" />
+                              <TableColumn prefWidth="75.0" text="C2" />
+                           </columns>
+                        </TableView>
+                        <TextField fx:id="prod_sel_txt" layoutX="40.0" layoutY="40.0" prefHeight="31.0" prefWidth="642.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="40.0" />
+                        <Button layoutX="54.0" layoutY="427.0" mnemonicParsing="false" onAction="#prod_in_btn" prefHeight="70.0" prefWidth="159.0" text="INSERT" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="47.0">
+                           <font>
+                              <Font name="Comic Sans MS" size="29.0" />
+                           </font>
+                        </Button>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="CUSORDER">
+            <content>
+               <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <TextField fx:id="order_sel_txt" layoutX="39.0" layoutY="40.0" prefHeight="31.0" prefWidth="642.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="118.0" AnchorPane.topAnchor="40.0" />
+                        <TextField fx:id="order_cno_txt" layoutX="109.0" layoutY="115.0" prefHeight="29.0" prefWidth="80.0" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="125.0" />
+                        <TableView layoutX="254.0" layoutY="115.0" prefHeight="397.0" prefWidth="546.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="order_id_txt" layoutX="129.0" layoutY="135.0" prefHeight="29.0" prefWidth="80.0" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="175.0" />
+                        <TextField fx:id="order_addr_txt" layoutX="139.0" layoutY="145.0" prefHeight="29.0" prefWidth="80.0" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="325.0" />
+                        <TextField fx:id="order_quan_txt" layoutX="149.0" layoutY="155.0" prefHeight="29.0" prefWidth="80.0" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="275.0" />
+                        <TextField fx:id="order_pno_txt" layoutX="159.0" layoutY="165.0" prefHeight="29.0" prefWidth="80.0" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="225.0" />
+                        <TextField fx:id="order_date_txt" layoutX="149.0" layoutY="155.0" prefHeight="29.0" prefWidth="80.0" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="375.0" />
+                        <Button layoutX="47.0" layoutY="427.0" mnemonicParsing="false" onAction="#order_in_btn" prefHeight="70.0" prefWidth="159.0" text="INSERT" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="47.0">
+                           <font>
+                              <Font name="Comic Sans MS" size="29.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="699.0" layoutY="41.0" mnemonicParsing="false" onAction="#order_sel_btn" prefHeight="29.0" prefWidth="84.0" text="SELECT" AnchorPane.leftAnchor="699.0" AnchorPane.topAnchor="41.0" />
+                        <Label layoutX="40.0" layoutY="126.0" prefHeight="28.0" prefWidth="70.0" text="C.No" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" />
+                        <Label layoutX="50.0" layoutY="136.0" prefHeight="28.0" prefWidth="70.0" text="ID" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="175.0" />
+                        <Label layoutX="60.0" layoutY="146.0" prefHeight="28.0" prefWidth="70.0" text="P.No" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="225.0" />
+                        <Label layoutX="70.0" layoutY="156.0" prefHeight="28.0" prefWidth="70.0" text="Quantity" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="275.0" />
+                        <Label layoutX="80.0" layoutY="166.0" prefHeight="28.0" prefWidth="70.0" text="Address" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="325.0" />
+                        <Label layoutX="90.0" layoutY="176.0" prefHeight="28.0" prefWidth="70.0" text="Date" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="375.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
