@@ -15,7 +15,7 @@ public class CustomerDAO {
         //Declare a SELECT statement
     	
 //--        String selectStmt = "SELECT * FROM employees WHERE employee_id="+empId;
-    	String selectStmt = "SELECT * FROM emp WHERE employee_id="+empId;
+    	String selectStmt = "SELECT * FROM customer WHERE "+empId;
     	
         //Execute SELECT statement
         try {
@@ -42,7 +42,13 @@ public class CustomerDAO {
             emp = new Customer();
             emp.setCusId(rs.getString("cusid"));
             emp.setCusName(rs.getString("cusname"));
+            emp.setAge(rs.getInt("age"));
+            emp.setRank(rs.getString("rank"));
+            emp.setJob(rs.getString("job"));
+            emp.setReserve(rs.getInt("reserve"));
 
+           // empList.add(emp);
+            //여기에는 List.add 가 없넹..?
         }
         return emp;
     }
@@ -51,11 +57,14 @@ public class CustomerDAO {
     //SELECT Employees
     //*******************************
     //-- Controller와 연결되어 있고,  SELECT-FROM문을 담당.
-    public static ObservableList<Customer> searchEmployees () throws SQLException, ClassNotFoundException {
+    public static ObservableList<Customer> searchEmployees (String sql) throws SQLException, ClassNotFoundException {
         //Declare a SELECT statement
-    	String selectStmt = "SELECT * FROM customer";
-//--        String selectStmt = "SELECT * FROM employees";
- 
+        if(!sql.equals(""))
+            sql = "WHERE " + sql;
+        String selectStmt = "SELECT * FROM customer " + sql;
+
+        System.out.println(sql);
+
         //Execute SELECT statement
         try {
             //Get ResultSet from dbExecuteQuery method
@@ -93,7 +102,8 @@ public class CustomerDAO {
             //Add employee to the ObservableList
             empList.add(emp);
         }
-        DBUtil.dbDisconnect();
+        //아래 db연결을 끊으면 에러남. dbExecuteQuery 왜일까...?
+      //  DBUtil.dbDisconnect();      //이것도 여기에만 있다.
         //return empList (ObservableList of Employees)
         return empList;
     }

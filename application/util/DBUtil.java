@@ -95,8 +95,7 @@ public class DBUtil {
             System.out.println("Problem occurred at executeQuery operation : " + e);
             throw e;
         } finally {
-
-
+ //           dbDisconnect();
         }
         //Return CachedRowSet
 //--        return crs;

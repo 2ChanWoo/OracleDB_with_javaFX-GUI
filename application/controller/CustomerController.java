@@ -73,6 +73,7 @@ public class CustomerController implements Initializable{
         */
 
 		//-- 표에 표시되는 열들.  --//
+		//setCellValueFactory :: 각 햄의 셀에 값을 넣어주는 메소드.
         cusidColumn.setCellValueFactory(cellData -> cellData.getValue().CusIdProperty());
         cusnameColumn.setCellValueFactory(cellData -> cellData.getValue().CusNameProperty());
 		ageColumn.setCellValueFactory(cellData -> cellData.getValue().AgeProperty().asObject());
@@ -82,10 +83,20 @@ public class CustomerController implements Initializable{
 
 	}
 
-	//�׼� �̺�Ʈ���� ��Ʈ�ѷ��� �Ʒ�ó�� ���ۼ����� ���־�� FXML���� ������ ���� �ʴ´�. (FXML���� onAction ���Ժκп� �����ٱ׾���)
-	//FX ���Ͽ����� �׷��µ�, ���⿡���� �� �ȱ׷���?
-	@FXML public void cus_in_btn(ActionEvent event) {
-
+	//액션 이벤트들은 컨트롤러에 아래처럼 동작선언을 해주어여만 FXML에서 오류가 나지 않는다. (FXML에러 onAction 삽입부분에 빨간줄그어짐)
+	//FX 파일에서는 그랬는데, 여기에서는 왜 안그럴까?
+	@FXML
+	public void cus_in_btn(ActionEvent event) throws SQLException, ClassNotFoundException {
+		try {
+			//Get Employee information
+			Customer emp = CustomerDAO.searchEmployee(cus_sel_txt.getText());
+			//Populate Employee on TableView and Display on TextArea
+			populateAndShowEmployee(emp);
+		} catch (SQLException e) {
+			e.printStackTrace();
+//--			resultArea.setText("Error occurred while getting employee information from DB.\n" + e);
+			throw e;
+		}
 	}
 
 	@FXML 
@@ -95,7 +106,7 @@ public class CustomerController implements Initializable{
 		//////////////////////////////////////////////////////
         try {
             //Get all Employees information
-            ObservableList<Customer> empData = CustomerDAO.searchEmployees();
+            ObservableList<Customer> empData = CustomerDAO.searchEmployees(cus_sel_txt.getText());
             //Populate Employees on TableView
             populateEmployees(empData);
         } catch (SQLException e){
@@ -104,9 +115,19 @@ public class CustomerController implements Initializable{
         }
         ///////////////////////////////////////////////////////
 	}
+
+	private void populateAndShowEmployee(Customer emp) throws ClassNotFoundException {
+		if (emp != null) {
+			populateEmployee(emp);
+//--			setEmpInfoToTextArea(emp);
+		} else {
+//-------------			resultArea.setText("This employee does not exist!\n");
+		}
+	}
+
 	//Populate Employee
     @FXML
-    private void populateEmployee (Customer emp) throws ClassNotFoundException {
+    private void populateEmployee(Customer emp) throws ClassNotFoundException {
         //Declare and ObservableList for table view
         ObservableList<Customer> empData = FXCollections.observableArrayList();
         //Add employee to the ObservableList
